@@ -250,7 +250,7 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         type="range"
                         min="0"
                         max="64"
-                        step="1"
+                        step="16"
                         onChange={(e) => {
                             setSetting({ borderRadius: e.target.value });
                         }}
