@@ -41,7 +41,6 @@
     white-space: pre-wrap;
 
     font-family: $emoter-font;
-    font-weight: bold;
     color: $white;
 }
 
@@ -49,12 +48,6 @@
     cursor: move;
     user-select: none;
     touch-action: none;
-}
-
-.image-text-evil {
-    color: $black;
-    z-index: 2;
-    pointer-events: none;
 }
 
 .image-image {

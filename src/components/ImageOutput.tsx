@@ -171,6 +171,10 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         style={{
                             color: settings.textColor,
                             fontFamily: settings.font,
+                            fontWeight:
+                                settings.font === "Concert One"
+                                    ? "normal"
+                                    : "bold",
                             textTransform: settings.allCaps
                                 ? "uppercase"
                                 : "none",
