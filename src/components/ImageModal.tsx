@@ -13,7 +13,7 @@ export function ImageModal({ imageUrl, onCloseModal }: Props) {
     const shareImage = async () => {
         const blob = await fetch(imageUrl).then((response) => response.blob());
         navigator.share({
-            files: [new File([blob], "whisper.png", { type: blob.type })],
+            files: [new File([blob], "emoji.png", { type: blob.type })],
         });
     };
 
@@ -28,7 +28,7 @@ export function ImageModal({ imageUrl, onCloseModal }: Props) {
                 <div className="image-modal-header">
                     <div className="image-modal-header-text">
                         <h4 className="image-modal-title">
-                            here is your whisper:
+                            here is your custom emoji:
                         </h4>
                         <h5 className="image-modal-subtitle">
                             make sure to save it!
@@ -46,7 +46,7 @@ export function ImageModal({ imageUrl, onCloseModal }: Props) {
                     <img
                         className="image-modal-output-image"
                         src={imageUrl}
-                        alt="whisper"
+                        alt="emoji"
                         crossOrigin="anonymous"
                     />
                 </div>

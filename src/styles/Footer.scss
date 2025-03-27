@@ -5,4 +5,12 @@ footer {
     text-align: right;
     padding: 0.5rem;
     line-height: 1.5em;
+
+    @media (min-width: 800px) {
+        width: 100%;
+        position: fixed;
+        left: 100%;
+        top: 100%;
+        transform: translate(-100%, -100%);
+    }
 }

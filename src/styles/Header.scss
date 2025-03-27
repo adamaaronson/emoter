@@ -1,10 +1,9 @@
 @import "../main.scss";
 
 header {
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
     color: $text-color;

@@ -11,7 +11,8 @@ function App() {
     const [emoteImageUrl, setEmoteImageUrl] = useState("");
     const [imageModalVisible, setImageModalVisible] = useState(false);
     const [settings, setSettings] = useState<Settings>({
-        fontSize: "1",
+        fontSize: "0.8",
+        borderRadius: "0",
         font: "Concert One",
         textColor: "#fafafa",
         backgroundColor: "#2a9fd6",
@@ -43,6 +44,8 @@ function App() {
         html2canvas(document.getElementById("image-output")!, {
             allowTaint: true,
             useCORS: true,
+            scale: 1,
+            backgroundColor: null,
         }).then(function (canvas) {
             setEmoteImageUrl(canvas.toDataURL("image/png"));
             setImageModalVisible(true);

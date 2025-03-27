@@ -1,3 +1,3 @@
 # Emoter
 
-Create your own custom react text emojis for Slack and Discord
+Create your own custom react text emoji for Slack and Discord

@@ -2,7 +2,7 @@ $main-font: "Winky Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $emoter-font: "Concert One";
 $black: #111;
 $white: #dcdee1;
-$gray: #999;
+$gray: #93969a;
 $background-color: #313338;
 $text-color: #dcdee1;
 $border: 3px solid $background-color;
@@ -26,5 +26,30 @@ a {
 
     &:hover {
         border-bottom: 1px solid $text-color;
+    }
+}
+
+button,
+.image-modal-download-button {
+    font-family: inherit;
+    color: $black;
+    background-color: $white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 99999px;
+
+    transition: 0.2s background-color;
+
+    &:disabled {
+        cursor: default;
+        opacity: 50%;
+    }
+
+    &:hover {
+        background-color: darken($white, 20);
+        text-decoration: none;
+        border-bottom: none;
     }
 }

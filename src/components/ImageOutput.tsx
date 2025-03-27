@@ -16,6 +16,7 @@ export interface Settings {
     backgroundColor: string;
     textAlignment: TextAlignment;
     allCaps: boolean;
+    borderRadius: string;
 }
 
 export enum TextAlignment {
@@ -42,7 +43,7 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
     const imageTextRef = useRef<HTMLSpanElement | null>(null);
 
     const getFontSizeStyle = () => {
-        return { fontSize: `${settings.fontSize}em` };
+        return { fontSize: `${Math.pow(parseFloat(settings.fontSize), 2)}em` };
     };
 
     const getTextAlignmentStyle = () => {
@@ -147,12 +148,15 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
         setTextDragOrigin({ x: 0, y: 0 });
     };
 
+    console.log(settings.borderRadius);
+
     return (
         <div className="image-output-wrapper full-width-box">
             <div
                 className="image-output"
                 id="image-output"
                 style={{
+                    borderRadius: `${settings.borderRadius}px`,
                     backgroundColor: settings.backgroundColor,
                 }}
             >
@@ -171,6 +175,9 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         style={{
                             color: settings.textColor,
                             fontFamily: settings.font,
+                            textTransform: settings.allCaps
+                                ? "uppercase"
+                                : "none",
                             ...getFontSizeStyle(),
                             ...getTextAlignmentStyle(),
                         }}
@@ -183,17 +190,71 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
             </div>
             <div className="settings-wrapper">
                 <div className="settings-item">
+                    <div className="settings-item-name">Text color:</div>
+                    <input
+                        className="settings-item-input"
+                        type="color"
+                        value={settings.textColor}
+                        onChange={(e) => {
+                            setSetting({ textColor: e.target.value });
+                        }}
+                    />
+                </div>
+                <div className="settings-item">
+                    <div className="settings-item-name">Background color:</div>
+                    <input
+                        className="settings-item-input"
+                        type="color"
+                        value={settings.backgroundColor}
+                        onChange={(e) => {
+                            setSetting({ backgroundColor: e.target.value });
+                        }}
+                    />
+                </div>
+                <div className="settings-item">
+                    <div className="settings-item-name">Font:</div>
+                    <select
+                        className="settings-item-input"
+                        value={settings.font}
+                        onChange={(e) => {
+                            setSetting({ font: e.target.value });
+                        }}
+                    >
+                        <option value="Concert One">
+                            Concert One (default)
+                        </option>
+                        <option value="Arial">Arial</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                </div>
+                <div className="settings-item">
                     <div className="settings-item-name">Font size:</div>
                     <input
                         className="settings-item-input"
                         type="range"
-                        min="0.25"
-                        max="5"
-                        step="0.05"
+                        min="0.4"
+                        max="1.8"
+                        step="0.01"
                         onChange={(e) => {
                             setSetting({ fontSize: e.target.value });
                         }}
                         defaultValue={settings.fontSize}
+                    />
+                </div>
+                <div className="settings-item">
+                    <div className="settings-item-name">Border radius:</div>
+                    <input
+                        className="settings-item-input"
+                        type="range"
+                        min="0"
+                        max="64"
+                        step="1"
+                        onChange={(e) => {
+                            setSetting({ borderRadius: e.target.value });
+                        }}
+                        defaultValue={settings.borderRadius}
                     />
                 </div>
                 <div className="settings-item">
@@ -225,46 +286,7 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         </option>
                     </select>
                 </div>
-                <div className="settings-item">
-                    <div className="settings-item-name">Font:</div>
-                    <select
-                        className="settings-item-input"
-                        value={settings.font}
-                        onChange={(e) => {
-                            setSetting({ font: e.target.value });
-                        }}
-                    >
-                        <option value="Concert One">
-                            Concert One (default)
-                        </option>
-                        <option value="Arial">Arial</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                    </select>
-                </div>
-                <div className="settings-item">
-                    <div className="settings-item-name">Text color:</div>
-                    <input
-                        className="settings-item-input"
-                        type="color"
-                        value={settings.textColor}
-                        onChange={(e) => {
-                            setSetting({ textColor: e.target.value });
-                        }}
-                    />
-                </div>
-                <div className="settings-item">
-                    <div className="settings-item-name">Background color:</div>
-                    <input
-                        className="settings-item-input"
-                        type="color"
-                        value={settings.backgroundColor}
-                        onChange={(e) => {
-                            setSetting({ backgroundColor: e.target.value });
-                        }}
-                    />
-                </div>
+
                 <div className="settings-item">
                     <div className="settings-item-name">All caps:</div>
                     <input

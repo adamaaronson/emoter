@@ -38,20 +38,6 @@ body {
     color: $gray;
 }
 
-button {
-    font-family: inherit;
-    color: $black;
-    background: $white;
-    padding: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-
-    &:disabled {
-        cursor: default;
-        opacity: 50%;
-    }
-}
-
 textarea {
     background: $text-color;
     padding: 1rem;
