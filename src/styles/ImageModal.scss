@@ -1,0 +1,94 @@
+@import "../main.scss";
+
+.image-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000aa;
+    z-index: 5;
+}
+
+.image-modal {
+    width: min(600px, 100vw - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow: scroll;
+    background: $background-color;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-modal-subtitle {
+    font-size: 1rem;
+}
+
+.image-modal-output {
+    overflow: scroll;
+}
+
+.image-modal-output-image {
+    max-width: 100%;
+    display: block;
+}
+
+.image-modal-header {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.image-modal-header-text {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.image-modal-close-button {
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    padding-bottom: 0.2em;
+}
+
+.image-modal-footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-modal-download-button {
+    background: $white;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none !important;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
+.image-modal-download-button-wrapper {
+    text-align: left;
+    flex: 1 0 auto;
+}
+
+.feedback-survey {
+    text-align: right;
+}
