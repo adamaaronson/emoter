@@ -7,6 +7,7 @@ header {
     align-items: center;
     justify-content: center;
     color: $text-color;
+    width: min(36rem, 100vw - 1rem);
 
     @media (max-width: 600px) {
         flex-direction: column;
@@ -16,21 +17,17 @@ header {
 }
 
 .title {
-    font-size: 7rem;
     font-family: $emoter-font;
     margin-bottom: 1rem;
 
-    @media (max-width: 400px) {
-        font-size: 6rem;
-        -webkit-text-stroke: 2px $black;
-    }
+    font-size: min(7rem, 20vw);
 }
 
 .subtitle {
     font-weight: normal;
     font-size: 1.4rem;
     text-align: left;
-    margin-top: -10px;
+    margin-top: -8px;
 
     @media (max-width: 600px) {
         text-align: center;

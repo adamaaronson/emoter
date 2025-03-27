@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 import "../styles/ImageOutput.scss";
 
-const TEXT_STROKE_STEPS = 32;
-
 interface Props {
     imageText: string;
     settings: Settings;

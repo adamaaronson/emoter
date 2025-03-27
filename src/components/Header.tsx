@@ -5,11 +5,7 @@ export function Header() {
         <header className="app-header">
             <h1 className="title">EMOTER</h1>
             <h2 className="subtitle">
-                Create&nbsp;your&nbsp;own
-                <br />
-                custom&nbsp;emoji&nbsp;for
-                <br />
-                Slack&nbsp;and&nbsp;Discord!
+                Create your own custom emoji for Slack and Discord!
             </h2>
         </header>
     );
