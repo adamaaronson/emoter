@@ -148,8 +148,6 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
         setTextDragOrigin({ x: 0, y: 0 });
     };
 
-    console.log(settings.borderRadius);
-
     return (
         <div className="image-output-wrapper full-width-box">
             <div
