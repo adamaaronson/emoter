@@ -9,7 +9,7 @@ interface Props {
 
 export interface Settings {
     fontSize: string;
-    font: string;
+    font: Font;
     textColor: string;
     backgroundColor: string;
     textAlignment: TextAlignment;
@@ -28,6 +28,24 @@ export enum TextAlignment {
     BottomLeft = "bottomleft",
     BottomRight = "bottomright",
 }
+
+const FONTS = [
+    "Concert One",
+    "Arial",
+    "Courier New",
+    "Impact",
+    "Times New Roman",
+] as const;
+
+type Font = (typeof FONTS)[number];
+
+const FONT_VERTICAL_OFFSETS: Record<Font, number> = {
+    "Concert One": -0.05,
+    Arial: 0.01,
+    "Courier New": 0.03,
+    Impact: 0,
+    "Times New Roman": 0,
+};
 
 export function ImageOutput({ imageText, settings, setSetting }: Props) {
     const [draggingText, setDraggingText] = useState(false);
@@ -175,6 +193,9 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                                 settings.font === "Concert One"
                                     ? "normal"
                                     : "bold",
+                            transform: `translate(0, ${
+                                FONT_VERTICAL_OFFSETS[settings.font]
+                            }em)`,
                             textTransform: settings.allCaps
                                 ? "uppercase"
                                 : "none",
@@ -217,16 +238,14 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         className="settings-item-input"
                         value={settings.font}
                         onChange={(e) => {
-                            setSetting({ font: e.target.value });
+                            setSetting({ font: e.target.value as Font });
                         }}
                     >
-                        <option value="Concert One">
-                            Concert One (default)
-                        </option>
-                        <option value="Arial">Arial</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Times New Roman">Times New Roman</option>
+                        {FONTS.map((font) => (
+                            <option value={font} key={font}>
+                                {font}
+                            </option>
+                        ))}
                     </select>
                 </div>
                 <div className="settings-item">
