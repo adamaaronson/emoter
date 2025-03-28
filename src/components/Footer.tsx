@@ -3,7 +3,7 @@ import "../styles/Footer.scss";
 export function Footer() {
     return (
         <footer>
-            made by{" "}
+            Made by{" "}
             <a
                 href="https://aaronson.org"
                 target="_blank"
@@ -12,7 +12,7 @@ export function Footer() {
                 Adam Aaronson
             </a>
             <br />
-            not affiliated with Slack or Discord
+            Not affiliated with Slack or Discord
         </footer>
     );
 }

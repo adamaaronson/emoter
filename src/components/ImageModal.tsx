@@ -28,10 +28,10 @@ export function ImageModal({ imageUrl, onCloseModal }: Props) {
                 <div className="image-modal-header">
                     <div className="image-modal-header-text">
                         <h4 className="image-modal-title">
-                            here is your custom emoji:
+                            Here is your custom emoji:
                         </h4>
                         <h5 className="image-modal-subtitle">
-                            make sure to save it!
+                            Make sure to save it!
                         </h5>
                     </div>
 
