@@ -65,7 +65,7 @@ function App() {
                         <textarea
                             id="text-field"
                             className="text-field full-width-box"
-                            placeholder="blah blah blah"
+                            placeholder="wow!"
                             value={imageText}
                             onChange={(e) => setImageText(e.target.value)}
                         />

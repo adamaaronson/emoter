@@ -204,7 +204,7 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         }}
                     >
                         <span className="image-text-span" ref={imageTextRef}>
-                            {imageText}
+                            {imageText || "wow!"}
                         </span>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ export function ImageOutput({ imageText, settings, setSetting }: Props) {
                         className="settings-item-input"
                         type="checkbox"
                         checked={settings.allCaps}
-                        onChange={(e) => {
+                        onChange={(_e) => {
                             setSetting({ allCaps: !settings.allCaps });
                         }}
                     />
